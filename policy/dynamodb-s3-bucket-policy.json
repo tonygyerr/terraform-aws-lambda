@@ -1,0 +1,25 @@
+{
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::123456789012:role/lambda-basic-execution"
+        },
+        "Action": "s3:*",
+        "Resource": ["arn:aws:s3:::app-ai-function-dynamodb", "arn:aws:s3:::app-ai-function-dynamodb/*"]
+      },
+      {
+        "Effect": "Deny",
+        "Principal": {
+          "AWS": ${key_users}
+        },
+        "Action": "s3:PutObject",
+        "Resource": "arn:aws:s3:::app-ai-function-dynamodb/*",
+        "Condition": {
+          "StringNotEquals": {
+            "s3:x-amz-acl": "bucket-owner-full-control"
+          }
+        }
+      }
+    ]
+  }

@@ -1,0 +1,74 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ReadOnlyPermissions",
+            "Effect": "Allow", 
+            "Action": [
+                "lambda:GetAccountSettings",
+                "lambda:ListFunctions",
+                "lambda:ListTags",
+                "lambda:GetEventSourceMapping",
+                "lambda:ListEventSourceMappings",
+                "iam:ListRoles"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "DevelopFunctions",
+            "Effect": "Allow", 
+            "NotAction": [
+                "lambda:AddPermission",
+                "lambda:PutFunctionConcurrency"
+            ],
+            "Resource": [
+                "arn:aws:lambda:us-east-1:123456789012:function:MobileAppFunction"
+            ]
+        },
+        {
+            "Sid": "DevelopEventSourceMappings",
+            "Effect": "Allow", 
+            "Action": [
+                "lambda:DeleteEventSourceMapping",
+                "lambda:UpdateEventSourceMapping",
+                "lambda:CreateEventSourceMapping"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "lambda:FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:MobileAppFunction"
+                }
+            }
+        },
+        {
+            "Sid": "PassExecutionRole",
+            "Effect": "Allow", 
+            "Action": [
+                "iam:ListRolePolicies",
+                "iam:ListAttachedRolePolicies",
+                "iam:GetRole",
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam::123456789012:role/lambda-basic-execution"
+        },
+        {
+            "Sid": "ViewExecutionRolePolicies",
+            "Effect": "Allow", 
+            "Action": [
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion"
+            ],
+            "Resource": "arn:aws:iam::aws:policy/*"
+        },
+        {
+            "Sid": "ViewLogs",
+            "Effect": "Allow", 
+            "Action": [
+                "logs:*"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:123456789012:log-group:/aws/lambda/MobileAppFunction"
+            ]
+        }
+    ]
+}
