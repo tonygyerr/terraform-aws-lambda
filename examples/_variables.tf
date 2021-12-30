@@ -13,8 +13,8 @@ variable "environment_variables" {
 }
 
 variable "arguments" {
-  type        = map
-  default     = {}
+  type    = map(any)
+  default = {}
 }
 
 variable "filename" {
@@ -23,8 +23,8 @@ variable "filename" {
 }
 
 variable "arguments" {
-  type        = map
-  default     = {}
+  type    = map(any)
+  default = {}
 }
 
 variable "environment_variables" {
@@ -44,7 +44,7 @@ variable "aws_region" {
 }
 
 variable "region" {
-  type        = string
+  type = string
   # default     = ""
 }
 

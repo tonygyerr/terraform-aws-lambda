@@ -38,5 +38,5 @@ resource "aws_lambda_permission" "this" {
   function_name = aws_lambda_function.this[count.index].arn
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.this.arn
-  depends_on = [aws_lambda_function.this]
+  depends_on    = [aws_lambda_function.this]
 }

@@ -8,8 +8,8 @@ variable "app_name" {
 }
 
 variable "arguments" {
-  type        = map
-  default     = {}
+  type    = map(any)
+  default = {}
 }
 
 variable "environment_variables" {
@@ -95,10 +95,7 @@ variable "aws_region" {
 #   type        = string
 # }
 
-variable "account_id" {
-  type = string
-  default = ""
-}
+
 
 variable "reserved_concurrent_executions" {
   default = "-1"
@@ -121,17 +118,17 @@ variable "vpc_config" {
 }
 
 variable "api_rest_api_id" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "api_http_method" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "api_resource_path" {
-  type = string
+  type    = string
   default = ""
 }
 
@@ -190,16 +187,16 @@ variable "http_method" {
 }
 
 variable "lambda_path" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "stack_name" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "layer_name" {
-  type = string
+  type    = string
   default = ""
 }

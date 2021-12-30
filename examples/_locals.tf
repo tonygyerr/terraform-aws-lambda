@@ -1,5 +1,5 @@
 locals {
-    lambda_arguments = {
-        "--argument-value"         = " "
-    }
+  lambda_arguments = {
+    "--argument-value" = " "
+  }
 }
