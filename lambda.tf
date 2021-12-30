@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "this" {
-  count                          = var.environment.environment == "dev" ? 1 : 0
+  count                          = var.environment == "dev" ? 1 : 0
   description                    = var.description
   filename                       = var.filename
   function_name                  = var.function_name
