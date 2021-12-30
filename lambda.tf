@@ -20,7 +20,9 @@ resource "aws_lambda_function" "this" {
   #   }
   # }
 
-  environment = var.environment_variables
+  environment {
+    variables = var.environment_variables
+  }
 
   dynamic "vpc_config" {
     for_each = length(var.vpc_config) < 1 ? [] : [var.vpc_config]
