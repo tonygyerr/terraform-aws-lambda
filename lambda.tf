@@ -35,7 +35,7 @@ resource "aws_lambda_function" "this" {
 }
 
 resource "aws_lambda_permission" "this" {
-  count         = var.environment.environment == "dev" ? 1 : 0
+  count         = var.environment == "dev" ? 1 : 0
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.this[count.index].arn
   principal     = "events.amazonaws.com"
