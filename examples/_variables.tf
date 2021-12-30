@@ -37,43 +37,23 @@ variable "handler" {
   default = ""
 }
 
-variable "cost_center" {
-  type    = string
-  default = "N/A"
-}
-
-variable "owner" {
-  type    = string
-  default = "user@emailaddress.com"
-}
-
 variable "aws_region" {
   description = "ec2 region for the vpc"
   type        = string
-  default     = "us-east-1"
+  default     = ""
 }
 
-variable "account_id" {
-  type    = string
+variable "region" {
+  type        = string
+  # default     = ""
 }
+
 
 variable "iam_role_arn" {
   type = string
 }
 
 variable "iam_role_name" {
-  type = string
-}
-
-variable "api_rest_api_id" {
-  type = string
-}
-
-variable "api_http_method" {
-  type = string
-}
-
-variable "api_resource_path" {
   type = string
 }
 

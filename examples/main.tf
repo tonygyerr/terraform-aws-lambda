@@ -6,9 +6,6 @@ data "archive_file" "service" {
 
 module "lambda" {
   source = "git::https://github.com/tonygyerr/terraform-aws-lambda.git"
-  api_rest_api_id        = var.api_rest_api_id
-  api_http_method        = var.api_http_method
-  api_resource_path      = var.api_resource_path
   region                 = var.aws_region
   environment            = var.environment
   environment_variables  = merge(local.lambda_arguments, var.arguments)
