@@ -13,12 +13,14 @@ resource "aws_lambda_function" "this" {
   tags                           = var.app_tags
   timeout                        = var.timeout
 
-  environment {
-    variables = {
-      ENV    = var.environment.environment
-      REGION = var.environment.aws_region
-    }
-  }
+  # environment {
+  #   variables = {
+  #     ENV    = var.environment.environment
+  #     REGION = var.environment.aws_region
+  #   }
+  # }
+
+  environment = var.environment_variables
 
   dynamic "vpc_config" {
     for_each = length(var.vpc_config) < 1 ? [] : [var.vpc_config]

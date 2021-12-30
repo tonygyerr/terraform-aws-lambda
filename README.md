@@ -97,3 +97,5 @@ terraform destroy -var-file="../env-config/dev.tfvars"
 | lambda\_function\_name | n/a |
 | lambda\_invoke\_arn | n/a |
 | lambda\_permission\_apigw\_layer\_arn | n/a |
+
+git remote set-url origin https://github.com/tonygyerr/terraform-aws-ec2.git

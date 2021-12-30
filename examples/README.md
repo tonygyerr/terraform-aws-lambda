@@ -51,7 +51,7 @@
 ## Terraform Module
 ```terraform
 module "lambda" {
-  source = "git::ssh://git@github.com:tonygyerr/terraform-aws-lambda.git"
+  source = "git::https://github.com/tonygyerr/terraform-aws-lambda.git"
   api_rest_api_id        = var.api_rest_api_id
   api_http_method        = var.api_http_method
   api_resource_path      = var.api_resource_path
