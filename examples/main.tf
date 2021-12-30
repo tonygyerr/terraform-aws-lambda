@@ -13,7 +13,7 @@ module "lambda" {
   environment            = var.environment
   environment_variables  = merge(local.lambda_arguments, var.arguments)
   filename               = data.archive_file.service.output_path #data.archive_file.this.output_base64sha256
-  application            = var.application
+  app_name            = var.app_name
   handler                = var.handler
   lambda_path            = var.lambda_path
   layer_name             = var.layer_name

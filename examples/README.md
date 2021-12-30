@@ -8,7 +8,7 @@
 | api\_http\_method |  | string | n/a | yes |
 | api\_resource\_path |  | string | n/a | yes |
 | api\_rest\_api\_id |  | string | n/a | yes |
-| application |  | string | n/a | yes |
+| app_name |  | string | n/a | yes |
 | aws\_region | ec2 region for the vpc | string | `"us-east-1"` | no |
 | cost\_center |  | string | `"N/A"` | no |
 | environment |  | string | n/a | yes |
@@ -57,7 +57,7 @@ module "lambda" {
   api_resource_path      = var.api_resource_path
   region                 = var.aws_region
   environment            = var.environment
-  application            = var.application
+  app_name            = var.app_name
   lambda_path            = var.lambda_path
   layer_name             = var.layer_name
   function_name          = var.function_name

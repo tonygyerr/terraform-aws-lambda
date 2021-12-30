@@ -15,7 +15,7 @@ module "lambda" {
   region                 = var.aws_region
   environment            = var.environment
   filename               = data.archive_file.service.output_path #data.archive_file.this.output_base64sha256
-  application            = var.application
+  app_name            = var.app_name
   lambda_path            = var.lambda_path
   layer_name             = var.layer_name
   function_name          = var.function_name
@@ -63,7 +63,7 @@ terraform destroy -var-file="../env-config/dev.tfvars"
 | api\_resource\_path | n/a | `string` | n/a | yes |
 | api\_rest\_api\_id | n/a | `string` | n/a | yes |
 | app\_tags | optional lambda tags | `map(string)` | <pre>{<br>  "costcenter": "",<br>  "environment": "",<br>  "name": "",<br>  "owner": "",<br>  "project": ""<br>}</pre> | no |
-| application | n/a | `string` | `""` | no |
+| app_name | n/a | `string` | `""` | no |
 | aws\_region | Default AWS Region | `string` | `"us-east-1"` | no |
 | cw\_event\_name | n/a | `string` | `""` | no |
 | description | Description of your Lambda Function | `string` | `""` | no |

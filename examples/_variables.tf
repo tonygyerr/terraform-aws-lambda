@@ -12,10 +12,6 @@ variable "environment_variables" {
   default     = {}
 }
 
-variable "application" {
-  type = string
-}
-
 variable "arguments" {
   type        = map
   default     = {}

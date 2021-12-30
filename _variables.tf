@@ -87,22 +87,17 @@ variable "publish" {
 variable "aws_region" {
   description = "Default AWS Region"
   type        = string
-  default     = "us-east-1"
+  default     = ""
 }
+
+# variable "region" {
+#   description = "ec2 region for the vpc"
+#   type        = string
+# }
 
 variable "account_id" {
   type = string
   default = ""
-}
-
-variable "application" {
-  type = string
-  default = ""
-}
-
-variable "region" {
-  description = "ec2 region for the vpc"
-  type        = string
 }
 
 variable "reserved_concurrent_executions" {
@@ -127,14 +122,17 @@ variable "vpc_config" {
 
 variable "api_rest_api_id" {
   type = string
+  default = ""
 }
 
 variable "api_http_method" {
   type = string
+  default = ""
 }
 
 variable "api_resource_path" {
   type = string
+  default = ""
 }
 
 variable "subnet_ids" {
@@ -188,21 +186,20 @@ EOF
 }
 
 variable "http_method" {
-  default = "GET"
+  default = ""
 }
 
 variable "lambda_path" {
   type = string
+  default = ""
 }
 
 variable "stack_name" {
   type = string
+  default = ""
 }
 
 variable "layer_name" {
   type = string
+  default = ""
 }
-
-# variable "s3_object_version" {
-#   type = string
-# }
