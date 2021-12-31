@@ -7,12 +7,11 @@ resource "aws_cloudwatch_event_rule" "this" {
 }
 
 resource "aws_cloudwatch_log_group" "this" {
-  count             = var.reputationListsProtectionActivated ? 1 : 0
   name              = "/aws/lambda/${var.app_name}-${var.function_name}"
   retention_in_days = 30
 }
 
 resource "aws_cloudwatch_event_target" "this" {
   rule = aws_cloudwatch_event_rule.this.name
-  arn  = aws_lambda_function.this[count.index].arn
+  arn  = aws_lambda_function.this.arn
 }
