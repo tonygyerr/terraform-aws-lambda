@@ -12,11 +12,6 @@ variable "environment_variables" {
   default     = {}
 }
 
-variable "arguments" {
-  type    = map(any)
-  default = {}
-}
-
 variable "filename" {
   description = "path to the filename"
   default     = ""

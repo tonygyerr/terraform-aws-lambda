@@ -13,15 +13,16 @@ resource "aws_lambda_function" "this" {
   tags                           = var.app_tags
   timeout                        = var.timeout
 
-  # environment {
-  #   variables = {
-  #     ENV    = var.environment.environment
-  #     REGION = var.environment.aws_region
-  #   }
-  # }
-
   environment {
     variables = var.environment_variables
+  }
+
+  dead_letter_config {
+    target_arn = var.dead_letter_arn
+  }
+
+  tracing_config {
+    mode = "Active"
   }
 
   dynamic "vpc_config" {
