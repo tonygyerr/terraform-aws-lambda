@@ -38,8 +38,13 @@ variable "handler" {
 }
 
 variable "aws_region" {
-  description = "ec2 region for the vpc"
+  description = "Default AWS Region"
   type        = string
+  default     = ""
+}
+
+variable "profile" {
+  description = "Enter name of profile"
   default     = ""
 }
 

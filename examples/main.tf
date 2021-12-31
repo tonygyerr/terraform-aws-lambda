@@ -14,6 +14,7 @@ module "lambda" {
   handler               = var.handler
   lambda_path           = var.lambda_path
   layer_name            = var.layer_name
+  profile               = var.profile
   function_name         = var.function_name
   stack_name            = var.stack_name
   iam_role_arn          = var.iam_role_arn #data.aws_iam_role.lambda.arn

@@ -90,6 +90,11 @@ variable "aws_region" {
   default     = ""
 }
 
+variable "profile" {
+  description = "Enter name of profile"
+  default     = ""
+}
+
 # variable "region" {
 #   description = "ec2 region for the vpc"
 #   type        = string
