@@ -2,7 +2,7 @@ resource "aws_cloudwatch_event_rule" "this" {
   depends_on          = [aws_lambda_function.this]
   name                = "app-event-${var.app_name}-${var.function_name}"
   description         = "Trigger Lambda"
-  schedule_expression = "cron(52 17 20 12 ? 2020)"
+  schedule_expression = "rate(1 hour)"
   is_enabled          = true
 }
 
@@ -10,13 +10,6 @@ resource "aws_cloudwatch_log_group" "this" {
   count             = var.reputationListsProtectionActivated ? 1 : 0
   name              = "/aws/lambda/${var.app_name}-${var.function_name}"
   retention_in_days = 30
-}
-
-resource "aws_cloudwatch_event_rule" "this" {
-  count = var.reputationListsProtectionActivated ? 1 : 0
-  name                = "${var.app_name}-${var.function_name}-event"
-  description         = "hourly"
-  schedule_expression = "rate(1 hour)"
 }
 
 resource "aws_cloudwatch_event_target" "this" {
