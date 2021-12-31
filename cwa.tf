@@ -13,7 +13,7 @@ resource "aws_cloudwatch_log_group" "this" {
 }
 
 resource "aws_cloudwatch_event_target" "this" {
-  count               = "1"
+  count               = var.environment == "dev" ? 1 : 0
   depends_on          = [aws_lambda_function.this]
   rule = aws_cloudwatch_event_rule.this.name
   arn  = aws_lambda_function.this[count.index].function_name

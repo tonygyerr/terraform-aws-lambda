@@ -37,7 +37,7 @@ resource "aws_lambda_function" "this" {
 resource "aws_lambda_permission" "this" {
   count         = var.environment == "dev" ? 1 : 0
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.this[count.index].arn
+  function_name = aws_lambda_function.this[count.index].function_name
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.this.arn
   depends_on    = [aws_lambda_function.this]
