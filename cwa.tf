@@ -5,3 +5,21 @@ resource "aws_cloudwatch_event_rule" "this" {
   schedule_expression = "cron(52 17 20 12 ? 2020)"
   is_enabled          = true
 }
+
+resource "aws_cloudwatch_log_group" "this" {
+  count             = var.reputationListsProtectionActivated ? 1 : 0
+  name              = "/aws/lambda/${var.app_name}-${var.function_name}"
+  retention_in_days = 30
+}
+
+resource "aws_cloudwatch_event_rule" "this" {
+  count = var.reputationListsProtectionActivated ? 1 : 0
+  name                = "${var.app_name}-${var.function_name}-event"
+  description         = "hourly"
+  schedule_expression = "rate(1 hour)"
+}
+
+resource "aws_cloudwatch_event_target" "this" {
+  rule = aws_cloudwatch_event_rule.this.name
+  arn  = aws_lambda_function.this[count.index].arn
+}
