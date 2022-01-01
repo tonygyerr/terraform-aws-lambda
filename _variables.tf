@@ -235,3 +235,15 @@ variable "kms_master_key_id" {
   type    = string
   default = null
 }
+
+variable "errorThreshold" {
+  description = "If you chose yes for the Activate Scanners & Probes Protection parameter, enter the maximum acceptable bad requests per minute per IP. If you chose to deactivate this protection protection, ignore this parameter."
+  type = number
+  default = 50
+}
+
+variable "blockPeriod" {
+  description = "If you chose yes for the Activate Scanners & Probes Protection or HTTP Flood Lambda/Athena log parser parameters, enter the period (in minutes) to block applicable IP addresses. If you chose to deactivate log parsing, ignore this parameter."
+  type        = number
+  default     = 240
+}
