@@ -225,3 +225,8 @@ variable "dead_letter_arn" {
   type    = string
   default = ""
 }
+
+variable "scope" {
+  type    = string
+  default = ""
+}
