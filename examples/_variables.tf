@@ -83,6 +83,12 @@ variable "ipset_v6" {
   default = ""
 }
 
+variable "logging_bucket" {
+  description = ""
+  default     = ""
+}
+
+
 variable "dead_letter_arn" {
   type    = string
   default = ""
