@@ -73,6 +73,16 @@ variable "layer_name" {
   type = string
 }
 
+variable "ipset_v4" {
+  type    = string
+  default = ""
+}
+
+variable "ipset_v6" {
+  type    = string
+  default = ""
+}
+
 variable "dead_letter_arn" {
   type    = string
   default = ""
