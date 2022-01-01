@@ -72,3 +72,8 @@ variable "function_name" {
 variable "layer_name" {
   type = string
 }
+
+variable "dead_letter_arn" {
+  type    = string
+  default = ""
+}

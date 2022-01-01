@@ -205,3 +205,8 @@ variable "layer_name" {
   type    = string
   default = ""
 }
+
+variable "dead_letter_arn" {
+  type    = string
+  default = ""
+}
