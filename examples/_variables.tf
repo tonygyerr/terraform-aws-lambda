@@ -115,3 +115,8 @@ variable "blockPeriod" {
   type        = number
   default     = 240
 }
+
+variable "account_id" {
+  type    = string
+  default = ""
+}
